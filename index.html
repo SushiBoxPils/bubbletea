@@ -9,31 +9,49 @@
 
 <style>
 :root{
-    --green:#2f8f2f;
-    --green2:#1f6f2a;
+    --green:#2f8f46;
+    --green-dark:#1f6f35;
     --beige:#f4ead7;
-    --black:#111;
+    --black:#111111;
+    --white:#ffffff;
     --pink:#ff4fd8;
     --blue:#00a6d6;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:'Poppins',sans-serif;
     background:var(--beige);
     color:var(--black);
     overflow-x:hidden;
 }
-a{text-decoration:none;color:inherit}
-img{display:block}
 
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:'Poppins',sans-serif;
+}
+
+/* HEADER */
 header{
     position:fixed;
     top:0;
+    left:0;
     width:100%;
     z-index:999;
-    background:rgba(244,234,215,.94);
+    background:rgba(244,234,215,0.95);
     backdrop-filter:blur(14px);
     border-bottom:2px solid var(--black);
 }
@@ -45,49 +63,63 @@ header{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:14px;
+    gap:15px;
 }
 
 .logo{
-    font-family:'Anton';
+    font-family:'Anton',sans-serif;
     font-size:30px;
     color:var(--green);
     text-shadow:2px 2px 0 var(--black);
+    white-space:nowrap;
 }
 
 .nav-links{
     display:flex;
     gap:18px;
+    align-items:center;
     font-weight:900;
     font-size:14px;
     text-transform:uppercase;
 }
 
-.nav-links a:hover{color:var(--green)}
+.nav-links a{
+    cursor:pointer;
+}
+
+.nav-links a:hover{
+    color:var(--green);
+}
 
 .nav-btn{
     background:var(--green);
-    color:white;
+    color:var(--white);
     padding:10px 16px;
     border:2px solid var(--black);
     border-radius:30px;
     font-weight:900;
     box-shadow:4px 4px 0 var(--black);
+    cursor:pointer;
 }
 
+/* PAGE SYSTEM */
 .page{
     display:none;
     padding-top:86px;
 }
-.page.active{display:block}
 
+.page.active{
+    display:block;
+}
+
+/* HERO */
 .hero{
     min-height:calc(100vh - 86px);
     padding:50px 20px 70px;
     display:flex;
     align-items:center;
     background:
-    radial-gradient(circle at 15% 20%, rgba(47,143,47,.28) 0 11%, transparent 12%),
+    radial-gradient(circle at 15% 20%, rgba(47,143,70,.28) 0 11%, transparent 12%),
     radial-gradient(circle at 80% 30%, rgba(255,79,216,.25) 0 8%, transparent 9%),
     radial-gradient(circle at 60% 85%, rgba(0,166,214,.25) 0 9%, transparent 10%),
     var(--beige);
@@ -105,7 +137,7 @@ header{
 .tag{
     display:inline-block;
     background:var(--black);
-    color:white;
+    color:var(--white);
     padding:9px 18px;
     border-radius:30px;
     font-weight:900;
@@ -114,7 +146,7 @@ header{
 }
 
 .hero h1{
-    font-family:'Anton';
+    font-family:'Anton',sans-serif;
     font-size:clamp(52px,9vw,118px);
     line-height:.9;
     text-transform:uppercase;
@@ -153,11 +185,13 @@ header{
     color:white;
     box-shadow:5px 5px 0 var(--black);
 }
+
 .btn-light{
     background:white;
     color:var(--black);
 }
 
+/* HERO IMAGE SLIDER */
 .hero-img{
     height:500px;
     border:3px solid var(--black);
@@ -173,6 +207,7 @@ header{
     display:flex;
     animation:slide 14s infinite;
 }
+
 .slider img{
     width:100%;
     height:100%;
@@ -200,13 +235,14 @@ header{
     transform:rotate(-5deg);
 }
 
+/* COMMON */
 section{
     padding:80px 20px;
 }
 
 .section-title{
     text-align:center;
-    font-family:'Anton';
+    font-family:'Anton',sans-serif;
     font-size:clamp(42px,6vw,76px);
     text-transform:uppercase;
     margin-bottom:45px;
@@ -217,6 +253,7 @@ section{
     text-shadow:3px 3px 0 var(--black);
 }
 
+/* FEATURES */
 .features{
     background:var(--black);
     color:white;
@@ -239,6 +276,11 @@ section{
     box-shadow:6px 6px 0 var(--green);
 }
 
+.feature h3{
+    margin-bottom:8px;
+}
+
+/* MENU */
 .filters{
     display:flex;
     justify-content:center;
@@ -297,7 +339,7 @@ section{
 }
 
 .card p{
-    color:#ddd;
+    color:#dddddd;
     font-size:14px;
 }
 
@@ -336,6 +378,11 @@ section{
     cursor:pointer;
 }
 
+.add-btn:hover{
+    background:#d936b5;
+}
+
+/* ORDER */
 .order-layout{
     max-width:1100px;
     margin:auto;
@@ -344,13 +391,19 @@ section{
     gap:30px;
 }
 
-.order-box,.info-box{
+.order-box,
+.info-box{
     background:var(--black);
     color:white;
     padding:35px;
     border-radius:30px;
     border:3px solid white;
     box-shadow:10px 10px 0 var(--green);
+}
+
+.order-box h2,
+.info-box h2{
+    margin-bottom:15px;
 }
 
 .cart-item{
@@ -385,15 +438,19 @@ section{
     margin-top:18px;
 }
 
-.form input,.form textarea{
+.form input,
+.form textarea{
     width:100%;
     padding:13px;
     border-radius:14px;
     border:2px solid var(--black);
-    font-family:'Poppins';
+    font-family:'Poppins',sans-serif;
 }
 
-.form textarea{min-height:90px}
+.form textarea{
+    min-height:90px;
+    resize:vertical;
+}
 
 .whatsapp-btn{
     display:block;
@@ -409,6 +466,7 @@ section{
     cursor:pointer;
 }
 
+/* ABOUT */
 .about-wrap{
     max-width:1100px;
     margin:auto;
@@ -441,9 +499,13 @@ section{
 }
 
 .about-text h2{
-    font-family:'Anton';
+    font-family:'Anton',sans-serif;
     font-size:55px;
     margin-bottom:15px;
+}
+
+.about-text p{
+    line-height:1.7;
 }
 
 .about-text ul{
@@ -453,30 +515,67 @@ section{
     font-weight:700;
 }
 
+/* FOOTER */
 footer{
     background:var(--black);
     color:white;
     text-align:center;
     padding:30px;
 }
+
 footer span{
     color:var(--green);
     font-weight:900;
 }
 
+/* MOBILE */
 @media(max-width:900px){
-    .nav-links{display:none}
-    .hero-wrap,.order-layout,.about-wrap{grid-template-columns:1fr}
-    .feature-grid,.menu-grid{grid-template-columns:1fr}
-    .hero-img{height:360px}
+    .nav-links{
+        display:none;
+    }
+
+    .hero-wrap,
+    .order-layout,
+    .about-wrap{
+        grid-template-columns:1fr;
+    }
+
+    .feature-grid,
+    .menu-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-img{
+        height:360px;
+    }
 }
 
 @media(max-width:480px){
-    .logo{font-size:23px}
-    .nav-btn{font-size:12px;padding:8px 11px}
-    .hero{padding-top:35px}
-    .hero-img{height:300px;box-shadow:7px 7px 0 var(--black)}
-    .cart-item{flex-direction:column}
+    .logo{
+        font-size:23px;
+    }
+
+    .nav-btn{
+        font-size:12px;
+        padding:8px 11px;
+    }
+
+    .hero{
+        padding-top:35px;
+    }
+
+    .hero-img{
+        height:300px;
+        box-shadow:7px 7px 0 var(--black);
+    }
+
+    .cart-item{
+        flex-direction:column;
+    }
+
+    .about-text h2{
+        font-size:42px;
+    }
 }
 </style>
 </head>
@@ -488,18 +587,19 @@ footer span{
         <div class="logo">BUBBLE STREET</div>
 
         <nav class="nav-links">
-            <a href="#" onclick="showPage('home')">Domů</a>
-            <a href="#" onclick="showPage('menu')">Menu</a>
-            <a href="#" onclick="showPage('order')">Objednávka</a>
-            <a href="#" onclick="showPage('about')">O nás</a>
+            <a onclick="showPage('home')">Domů</a>
+            <a onclick="showPage('menu')">Menu</a>
+            <a onclick="showPage('order')">Objednávka</a>
+            <a onclick="showPage('about')">O nás</a>
         </nav>
 
-        <a href="#" onclick="showPage('order')" class="nav-btn">Košík 🛒</a>
+        <button class="nav-btn" onclick="showPage('order')">Košík 🛒</button>
     </div>
 </header>
 
 <main>
 
+<!-- HOME PAGE -->
 <div id="home" class="page active">
 
     <section class="hero">
@@ -519,8 +619,8 @@ footer span{
                 </p>
 
                 <div class="buttons">
-                    <a class="btn btn-main" onclick="showPage('menu')">Vybrat nápoj</a>
-                    <a class="btn btn-light" onclick="showPage('about')">Zjistit více</a>
+                    <button class="btn btn-main" onclick="showPage('menu')">Vybrat nápoj</button>
+                    <button class="btn btn-light" onclick="showPage('about')">Zjistit více</button>
                 </div>
             </div>
 
@@ -543,14 +643,17 @@ footer span{
                 <h3>Online menu</h3>
                 <p>Produkty, ceny, fotky a popisy.</p>
             </div>
+
             <div class="feature">
                 <h3>Filtr kategorií</h3>
                 <p>Milk tea, fruit tea, matcha, coffee a special.</p>
             </div>
+
             <div class="feature">
                 <h3>Košík</h3>
                 <p>Výběr více položek do objednávky.</p>
             </div>
+
             <div class="feature">
                 <h3>WhatsApp</h3>
                 <p>Objednávka se připraví do zprávy.</p>
@@ -560,6 +663,7 @@ footer span{
 
 </div>
 
+<!-- MENU PAGE -->
 <div id="menu" class="page">
 
     <section>
@@ -576,146 +680,429 @@ footer span{
 
         <div class="menu-grid">
 
+            <!-- 1 -->
             <div class="card product" data-category="milk">
                 <img src="https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
                 <div class="card-content">
                     <h3>Brown Sugar Milk Tea</h3>
                     <p>Mléčný čaj s hnědým cukrem a tapioka perlami.</p>
                     <div class="price">89 Kč</div>
+
                     <div class="options">
-                        <select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-                        <select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-                        <select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-                        <select class="topping"><option>Tapioka perly</option><option>Jelly +10 Kč</option><option>Popping boba +15 Kč</option></select>
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>100% cukr</option>
+                            <option>70% cukr</option>
+                            <option>50% cukr</option>
+                            <option>30% cukr</option>
+                            <option>0% cukr</option>
+                        </select>
+                        <select class="ice">
+                            <option>Normální led</option>
+                            <option>Méně ledu</option>
+                            <option>Bez ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Tapioka perly</option>
+                            <option>Jelly +10 Kč</option>
+                            <option>Popping boba +15 Kč</option>
+                        </select>
                     </div>
+
                     <button class="add-btn" onclick="addToCart(this,'Brown Sugar Milk Tea',89)">Přidat do košíku</button>
                 </div>
             </div>
 
+            <!-- 2 -->
             <div class="card product" data-category="milk">
                 <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
                 <div class="card-content">
                     <h3>Classic Milk Tea</h3>
                     <p>Klasický černý čaj s mlékem a jemnou chutí.</p>
                     <div class="price">79 Kč</div>
+
                     <div class="options">
-                        <select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-                        <select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-                        <select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-                        <select class="topping"><option>Tapioka perly</option><option>Jelly +10 Kč</option><option>Extra tapioka +15 Kč</option></select>
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>100% cukr</option>
+                            <option>70% cukr</option>
+                            <option>50% cukr</option>
+                            <option>30% cukr</option>
+                            <option>0% cukr</option>
+                        </select>
+                        <select class="ice">
+                            <option>Normální led</option>
+                            <option>Méně ledu</option>
+                            <option>Bez ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Tapioka perly</option>
+                            <option>Jelly +10 Kč</option>
+                            <option>Extra tapioka +15 Kč</option>
+                        </select>
                     </div>
+
                     <button class="add-btn" onclick="addToCart(this,'Classic Milk Tea',79)">Přidat do košíku</button>
                 </div>
             </div>
 
+            <!-- 3 -->
             <div class="card product" data-category="milk">
                 <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
                 <div class="card-content">
                     <h3>Taro Milk Tea</h3>
                     <p>Krémový nápoj s taro chutí a sladkou vůní.</p>
                     <div class="price">95 Kč</div>
+
                     <div class="options">
-                        <select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-                        <select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-                        <select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-                        <select class="topping"><option>Tapioka perly</option><option>Pudding +15 Kč</option><option>Jelly +10 Kč</option></select>
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>100% cukr</option>
+                            <option>70% cukr</option>
+                            <option>50% cukr</option>
+                            <option>30% cukr</option>
+                            <option>0% cukr</option>
+                        </select>
+                        <select class="ice">
+                            <option>Normální led</option>
+                            <option>Méně ledu</option>
+                            <option>Bez ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Tapioka perly</option>
+                            <option>Pudding +15 Kč</option>
+                            <option>Jelly +10 Kč</option>
+                        </select>
                     </div>
+
                     <button class="add-btn" onclick="addToCart(this,'Taro Milk Tea',95)">Přidat do košíku</button>
                 </div>
             </div>
 
+            <!-- 4 -->
             <div class="card product" data-category="matcha">
                 <img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
                 <div class="card-content">
                     <h3>Matcha Latte Bubble</h3>
                     <p>Japonská matcha, mléko a jemná pěna.</p>
                     <div class="price">95 Kč</div>
+
                     <div class="options">
-                        <select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-                        <select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-                        <select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-                        <select class="topping"><option>Tapioka perly</option><option>Jelly +10 Kč</option><option>Popping boba +15 Kč</option></select>
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>100% cukr</option>
+                            <option>70% cukr</option>
+                            <option>50% cukr</option>
+                            <option>30% cukr</option>
+                            <option>0% cukr</option>
+                        </select>
+                        <select class="ice">
+                            <option>Normální led</option>
+                            <option>Méně ledu</option>
+                            <option>Bez ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Tapioka perly</option>
+                            <option>Jelly +10 Kč</option>
+                            <option>Popping boba +15 Kč</option>
+                        </select>
                     </div>
+
                     <button class="add-btn" onclick="addToCart(this,'Matcha Latte Bubble',95)">Přidat do košíku</button>
                 </div>
             </div>
 
+            <!-- 5 -->
+            <div class="card product" data-category="matcha">
+                <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
+                <div class="card-content">
+                    <h3>Strawberry Matcha</h3>
+                    <p>Matcha s jahodovým pyré a mlékem.</p>
+                    <div class="price">109 Kč</div>
+
+                    <div class="options">
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>100% cukr</option>
+                            <option>70% cukr</option>
+                            <option>50% cukr</option>
+                            <option>30% cukr</option>
+                            <option>0% cukr</option>
+                        </select>
+                        <select class="ice">
+                            <option>Normální led</option>
+                            <option>Méně ledu</option>
+                            <option>Bez ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Jahodové boba</option>
+                            <option>Tapioka +10 Kč</option>
+                            <option>Extra strawberry +20 Kč</option>
+                        </select>
+                    </div>
+
+                    <button class="add-btn" onclick="addToCart(this,'Strawberry Matcha',109)">Přidat do košíku</button>
+                </div>
+            </div>
+
+            <!-- 6 -->
             <div class="card product" data-category="fruit">
                 <img src="https://images.unsplash.com/photo-1565152768079-28a4f6b47870?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
                 <div class="card-content">
                     <h3>Mango Fruit Tea</h3>
                     <p>Ovocný čaj s mangem a svěží chutí.</p>
                     <div class="price">85 Kč</div>
+
                     <div class="options">
-                        <select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-                        <select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-                        <select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-                        <select class="topping"><option>Popping boba</option><option>Jelly +10 Kč</option><option>Tapioka +10 Kč</option></select>
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>100% cukr</option>
+                            <option>70% cukr</option>
+                            <option>50% cukr</option>
+                            <option>30% cukr</option>
+                            <option>0% cukr</option>
+                        </select>
+                        <select class="ice">
+                            <option>Normální led</option>
+                            <option>Méně ledu</option>
+                            <option>Bez ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Popping boba</option>
+                            <option>Jelly +10 Kč</option>
+                            <option>Tapioka +10 Kč</option>
+                        </select>
                     </div>
+
                     <button class="add-btn" onclick="addToCart(this,'Mango Fruit Tea',85)">Přidat do košíku</button>
                 </div>
             </div>
 
+            <!-- 7 -->
             <div class="card product" data-category="fruit">
                 <img src="https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
                 <div class="card-content">
                     <h3>Passion Fruit Tea</h3>
                     <p>Maracuja, zelený čaj a osvěžující chuť.</p>
                     <div class="price">89 Kč</div>
+
                     <div class="options">
-                        <select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-                        <select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-                        <select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-                        <select class="topping"><option>Mango boba</option><option>Jelly +10 Kč</option><option>Extra fruit +20 Kč</option></select>
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>100% cukr</option>
+                            <option>70% cukr</option>
+                            <option>50% cukr</option>
+                            <option>30% cukr</option>
+                            <option>0% cukr</option>
+                        </select>
+                        <select class="ice">
+                            <option>Normální led</option>
+                            <option>Méně ledu</option>
+                            <option>Bez ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Mango boba</option>
+                            <option>Jelly +10 Kč</option>
+                            <option>Extra fruit +20 Kč</option>
+                        </select>
                     </div>
+
                     <button class="add-btn" onclick="addToCart(this,'Passion Fruit Tea',89)">Přidat do košíku</button>
                 </div>
             </div>
 
+            <!-- 8 -->
+            <div class="card product" data-category="fruit">
+                <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
+                <div class="card-content">
+                    <h3>Lychee Rose Tea</h3>
+                    <p>Liči, růže a lehký zelený čaj.</p>
+                    <div class="price">92 Kč</div>
+
+                    <div class="options">
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>100% cukr</option>
+                            <option>70% cukr</option>
+                            <option>50% cukr</option>
+                            <option>30% cukr</option>
+                            <option>0% cukr</option>
+                        </select>
+                        <select class="ice">
+                            <option>Normální led</option>
+                            <option>Méně ledu</option>
+                            <option>Bez ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Lychee boba</option>
+                            <option>Jelly +10 Kč</option>
+                            <option>Aloe vera +15 Kč</option>
+                        </select>
+                    </div>
+
+                    <button class="add-btn" onclick="addToCart(this,'Lychee Rose Tea',92)">Přidat do košíku</button>
+                </div>
+            </div>
+
+            <!-- 9 -->
             <div class="card product" data-category="coffee">
                 <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
                 <div class="card-content">
                     <h3>Vietnamese Coffee</h3>
                     <p>Silná káva s kondenzovaným mlékem.</p>
                     <div class="price">79 Kč</div>
+
                     <div class="options">
-                        <select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-                        <select class="sugar"><option>Sladké</option><option>Méně sladké</option><option>Bez cukru</option></select>
-                        <select class="ice"><option>Ledová</option><option>Teplá</option><option>Méně ledu</option></select>
-                        <select class="topping"><option>Bez toppingu</option><option>Tapioka +10 Kč</option><option>Coffee jelly +15 Kč</option></select>
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>Sladké</option>
+                            <option>Méně sladké</option>
+                            <option>Bez cukru</option>
+                        </select>
+                        <select class="ice">
+                            <option>Ledová</option>
+                            <option>Teplá</option>
+                            <option>Méně ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Bez toppingu</option>
+                            <option>Tapioka +10 Kč</option>
+                            <option>Coffee jelly +15 Kč</option>
+                        </select>
                     </div>
+
                     <button class="add-btn" onclick="addToCart(this,'Vietnamese Coffee',79)">Přidat do košíku</button>
                 </div>
             </div>
 
+            <!-- 10 -->
+            <div class="card product" data-category="coffee">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
+                <div class="card-content">
+                    <h3>Brown Sugar Coffee Latte</h3>
+                    <p>Káva, mléko a hnědý cukr.</p>
+                    <div class="price">99 Kč</div>
+
+                    <div class="options">
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>100% cukr</option>
+                            <option>70% cukr</option>
+                            <option>50% cukr</option>
+                            <option>30% cukr</option>
+                        </select>
+                        <select class="ice">
+                            <option>Ledová</option>
+                            <option>Teplá</option>
+                            <option>Méně ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Coffee jelly</option>
+                            <option>Tapioka +10 Kč</option>
+                            <option>Extra caramel +15 Kč</option>
+                        </select>
+                    </div>
+
+                    <button class="add-btn" onclick="addToCart(this,'Brown Sugar Coffee Latte',99)">Přidat do košíku</button>
+                </div>
+            </div>
+
+            <!-- 11 -->
             <div class="card product" data-category="special">
                 <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
                 <div class="card-content">
                     <h3>Blue Lemon Soda</h3>
                     <p>Modrá limonáda, citron a bublinky.</p>
                     <div class="price">75 Kč</div>
+
                     <div class="options">
-                        <select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-                        <select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option></select>
-                        <select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-                        <select class="topping"><option>Bez toppingu</option><option>Popping boba +15 Kč</option><option>Jelly +10 Kč</option></select>
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>100% cukr</option>
+                            <option>70% cukr</option>
+                            <option>50% cukr</option>
+                            <option>30% cukr</option>
+                        </select>
+                        <select class="ice">
+                            <option>Normální led</option>
+                            <option>Méně ledu</option>
+                            <option>Bez ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Bez toppingu</option>
+                            <option>Popping boba +15 Kč</option>
+                            <option>Jelly +10 Kč</option>
+                        </select>
                     </div>
+
                     <button class="add-btn" onclick="addToCart(this,'Blue Lemon Soda',75)">Přidat do košíku</button>
                 </div>
             </div>
 
+            <!-- 12 -->
             <div class="card product" data-category="special">
                 <img src="https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=700&q=80" onerror="this.src=fallbackImg">
                 <div class="card-content">
                     <h3>Oreo Cream Milk</h3>
                     <p>Mléčný drink s Oreo a krémovou chutí.</p>
                     <div class="price">105 Kč</div>
+
                     <div class="options">
-                        <select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-                        <select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option></select>
-                        <select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-                        <select class="topping"><option>Oreo crumb</option><option>Extra cream +15 Kč</option><option>Tapioka +10 Kč</option></select>
+                        <select class="size">
+                            <option value="M">Size M</option>
+                            <option value="L +15 Kč">Size L +15 Kč</option>
+                        </select>
+                        <select class="sugar">
+                            <option>100% cukr</option>
+                            <option>70% cukr</option>
+                            <option>50% cukr</option>
+                            <option>30% cukr</option>
+                        </select>
+                        <select class="ice">
+                            <option>Normální led</option>
+                            <option>Méně ledu</option>
+                            <option>Bez ledu</option>
+                        </select>
+                        <select class="topping">
+                            <option>Oreo crumb</option>
+                            <option>Extra cream +15 Kč</option>
+                            <option>Tapioka +10 Kč</option>
+                        </select>
                     </div>
+
                     <button class="add-btn" onclick="addToCart(this,'Oreo Cream Milk',105)">Přidat do košíku</button>
                 </div>
             </div>
@@ -725,6 +1112,7 @@ footer span{
 
 </div>
 
+<!-- ORDER PAGE -->
 <div id="order" class="page">
 
     <section>
@@ -737,6 +1125,7 @@ footer span{
                 <div id="cartItems">
                     <p>Košík je zatím prázdný.</p>
                 </div>
+
                 <div class="cart-total" id="cartTotal">Celkem: 0 Kč</div>
             </div>
 
@@ -759,18 +1148,21 @@ footer span{
 
 </div>
 
+<!-- ABOUT PAGE -->
 <div id="about" class="page">
 
     <section>
         <h2 class="section-title">O <span>nás</span></h2>
 
         <div class="about-wrap">
+
             <div class="about-img">
                 <img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=900&q=80" onerror="this.src=fallbackImg">
             </div>
 
             <div class="about-text">
                 <h2>Bubble Street</h2>
+
                 <p>
                     Bubble Street je moderní ukázkový web pro podnik v České republice,
                     který chce prodávat nápoje online. Design kombinuje street styl,
@@ -785,6 +1177,7 @@ footer span{
                     <li>Vhodné pro bubble tea, kavárnu, bistro nebo takeaway</li>
                 </ul>
             </div>
+
         </div>
     </section>
 
@@ -800,7 +1193,7 @@ footer span{
 const fallbackImg = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
 <svg xmlns='http://www.w3.org/2000/svg' width='900' height='600'>
 <rect width='100%' height='100%' fill='#f4ead7'/>
-<circle cx='180' cy='150' r='110' fill='#2f8f2f'/>
+<circle cx='180' cy='150' r='110' fill='#2f8f46'/>
 <circle cx='690' cy='180' r='90' fill='#ff4fd8'/>
 <circle cx='480' cy='420' r='120' fill='#00a6d6'/>
 <text x='50%' y='52%' text-anchor='middle' font-size='54' font-family='Arial' fill='#111' font-weight='bold'>BUBBLE TEA</text>
@@ -810,13 +1203,19 @@ const fallbackImg = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
 let cart = [];
 
 function showPage(pageId){
-    document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
     document.getElementById(pageId).classList.add("active");
     window.scrollTo(0,0);
 }
 
 function filterMenu(category, button){
-    document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
     button.classList.add("active");
 
     document.querySelectorAll(".product").forEach(product => {
@@ -845,7 +1244,15 @@ function addToCart(button,name,basePrice){
 
     let price = basePrice + getExtraPrice(size) + getExtraPrice(topping);
 
-    cart.push({name,size,sugar,ice,topping,price});
+    cart.push({
+        name:name,
+        size:size,
+        sugar:sugar,
+        ice:ice,
+        topping:topping,
+        price:price
+    });
+
     updateCart();
 
     alert("Produkt byl přidán do košíku!");
@@ -879,7 +1286,8 @@ function updateCart(){
                 <strong>${item.price} Kč</strong><br>
                 <button class="remove-btn" onclick="removeItem(${index})">Smazat</button>
             </div>
-        </div>`;
+        </div>
+        `;
     });
 
     cartItems.innerHTML = html;
@@ -909,6 +1317,7 @@ function sendWhatsApp(){
 
     cart.forEach((item,index)=>{
         total += item.price;
+
         message += `${index + 1}. ${item.name}%0A`;
         message += `Size: ${item.size}%0A`;
         message += `Cukr: ${item.sugar}%0A`;
