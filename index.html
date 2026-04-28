@@ -11,8 +11,8 @@
 :root{
 --green:#2f8f46;
 --green2:#1f6f35;
---beige:#fbf4e8;
---beige2:#fffaf1;
+--beige:#CFB095;
+--beige2:#ddc0a4;
 --black:#111;
 --pink:#ff4fd8;
 --blue:#00a6d6;
@@ -38,7 +38,7 @@ top:0;
 left:0;
 width:100%;
 z-index:999;
-background:rgba(251,244,232,.95);
+background:rgba(207,176,149,.95);
 backdrop-filter:blur(14px);
 border-bottom:2px solid var(--black);
 }
@@ -66,10 +66,10 @@ text-shadow:2px 2px 0 var(--black);
 
 .nav-links{
 display:flex;
-gap:18px;
+gap:15px;
 font-weight:900;
 text-transform:uppercase;
-font-size:14px;
+font-size:13px;
 }
 
 .nav-links a:hover{color:var(--green)}
@@ -103,7 +103,7 @@ display:flex;
 align-items:center;
 padding:60px 20px;
 background:
-radial-gradient(circle at 15% 25%,rgba(47,143,70,.23) 0 10%,transparent 11%),
+radial-gradient(circle at 15% 25%,rgba(47,143,70,.25) 0 10%,transparent 11%),
 radial-gradient(circle at 85% 30%,rgba(255,79,216,.18) 0 8%,transparent 9%),
 radial-gradient(circle at 60% 85%,rgba(0,166,214,.18) 0 9%,transparent 10%),
 var(--beige);
@@ -133,10 +133,6 @@ border-radius:30px;
 font-weight:900;
 margin-bottom:20px;
 transform:rotate(-2deg);
-}
-body.dark .tag{
-background:white;
-color:#111;
 }
 
 .hero h1{
@@ -265,6 +261,59 @@ border:3px solid white;
 border-radius:25px;
 padding:25px;
 box-shadow:6px 6px 0 var(--green);
+}
+
+/* BONUS HOME */
+.bonus-home{
+background:var(--beige);
+}
+
+.bonus-home-box{
+max-width:1100px;
+margin:auto;
+background:var(--black);
+color:white;
+border:3px solid white;
+border-radius:35px;
+padding:45px;
+box-shadow:12px 12px 0 var(--green);
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:center;
+}
+
+.bonus-home-box h2{
+font-family:'Anton';
+font-size:58px;
+line-height:1;
+margin-bottom:15px;
+}
+
+.bonus-home-box h2 span{
+color:var(--green);
+}
+
+.bonus-home-box p{
+line-height:1.8;
+margin-bottom:18px;
+}
+
+.bonus-cards{
+display:grid;
+gap:15px;
+}
+
+.bonus-mini{
+background:#222;
+border:1px solid #444;
+border-radius:22px;
+padding:20px;
+}
+
+.bonus-mini strong{
+color:var(--green);
+font-size:22px;
 }
 
 /* MENU */
@@ -479,8 +528,8 @@ font-weight:700;
 /* DEMO PAGE */
 .demo-hero{
 background:
-linear-gradient(135deg,rgba(47,143,70,.18),rgba(255,255,255,.6)),
-var(--beige2);
+linear-gradient(135deg,rgba(47,143,70,.18),rgba(255,255,255,.32)),
+var(--beige);
 }
 
 body.dark .demo-hero{
@@ -555,6 +604,87 @@ margin-bottom:12px;
 line-height:1.8;
 }
 
+/* BONUS PAGE */
+.bonus-page-wrap{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:start;
+}
+
+.bonus-main-card{
+background:var(--black);
+color:white;
+border:3px solid white;
+border-radius:35px;
+padding:40px;
+box-shadow:12px 12px 0 var(--green);
+}
+
+.bonus-main-card h2{
+font-family:'Anton';
+font-size:55px;
+margin-bottom:15px;
+}
+
+.bonus-main-card p{
+line-height:1.8;
+margin-bottom:18px;
+}
+
+.points-box{
+background:white;
+color:#111;
+border:3px solid var(--black);
+border-radius:30px;
+padding:35px;
+box-shadow:10px 10px 0 var(--black);
+}
+
+.points-box h3{
+font-family:'Anton';
+font-size:42px;
+margin-bottom:15px;
+}
+
+.points-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #ddd;
+padding:14px 0;
+font-weight:800;
+}
+
+.points-row span:last-child{
+color:var(--green);
+font-size:22px;
+}
+
+.points-form{
+display:grid;
+gap:12px;
+margin-top:20px;
+}
+
+.points-form input{
+padding:13px;
+border-radius:14px;
+border:2px solid var(--black);
+}
+
+.calc-result{
+margin-top:15px;
+background:var(--green);
+color:white;
+border-radius:20px;
+padding:15px;
+font-weight:900;
+text-align:center;
+}
+
 /* FOOTER */
 footer{
 background:var(--black);
@@ -571,7 +701,7 @@ font-weight:900;
 /* MOBILE */
 @media(max-width:900px){
 .nav-links{display:none}
-.hero-wrap,.order-layout,.about-wrap,.style-section{grid-template-columns:1fr}
+.hero-wrap,.order-layout,.about-wrap,.style-section,.bonus-home-box,.bonus-page-wrap{grid-template-columns:1fr}
 .feature-grid,.menu-grid,.demo-grid{grid-template-columns:1fr}
 .hero-img{height:360px}
 }
@@ -584,6 +714,8 @@ font-weight:900;
 .cart-item{flex-direction:column}
 .demo-box{padding:30px 22px}
 .demo-box h2{font-size:42px}
+.bonus-home-box{padding:30px 22px}
+.bonus-main-card{padding:30px 22px}
 }
 </style>
 </head>
@@ -598,6 +730,7 @@ font-weight:900;
 <a onclick="showPage('home')">Domů</a>
 <a onclick="showPage('menu')">Menu</a>
 <a onclick="showPage('order')">Objednávka</a>
+<a onclick="showPage('bonus')">Bonus karta</a>
 <a onclick="showPage('about')">O nás</a>
 <a onclick="showPage('demo')">Demo pro klienta</a>
 </nav>
@@ -631,6 +764,7 @@ Zákazník si vybere nápoj, velikost, cukr, led, topping a odešle objednávku 
 
 <div class="buttons">
 <button class="btn btn-main" onclick="showPage('menu')">Vybrat nápoj</button>
+<button class="btn btn-light" onclick="showPage('bonus')">Bonus karta</button>
 <button class="btn btn-light" onclick="showPage('demo')">Demo pro klienta</button>
 </div>
 </div>
@@ -654,7 +788,26 @@ Zákazník si vybere nápoj, velikost, cukr, led, topping a odešle objednávku 
 <div class="feature"><h3>Online menu</h3><p>Produkty, ceny, fotky a popisy.</p></div>
 <div class="feature"><h3>Filtr kategorií</h3><p>Milk tea, fruit tea, matcha, coffee a special.</p></div>
 <div class="feature"><h3>Košík</h3><p>Zákazník může objednat více položek najednou.</p></div>
-<div class="feature"><h3>WhatsApp</h3><p>Objednávka se připraví přímo do zprávy.</p></div>
+<div class="feature"><h3>Bonus systém</h3><p>Zákazník sbírá body a mění je za bubble tea.</p></div>
+</div>
+</section>
+
+<section class="bonus-home">
+<div class="bonus-home-box">
+<div>
+<h2>Bonus <span>karta</span></h2>
+<p>
+Sbírej body za každou objednávku a vyměň je za nápoje zdarma.
+Tento systém je skvělý pro pravidelné zákazníky a pomáhá podniku prodávat opakovaně.
+</p>
+<button class="btn btn-main" onclick="showPage('bonus')">Zjistit více</button>
+</div>
+
+<div class="bonus-cards">
+<div class="bonus-mini"><strong>1 Kč = 1 bod</strong><br>Každá objednávka přidá body.</div>
+<div class="bonus-mini"><strong>250 bodů</strong><br>Malý bubble tea zdarma.</div>
+<div class="bonus-mini"><strong>400 bodů</strong><br>Velký bubble tea zdarma.</div>
+</div>
 </div>
 </section>
 </div>
@@ -706,6 +859,66 @@ Zákazník si vybere nápoj, velikost, cukr, led, topping a odešle objednávku 
 </section>
 </div>
 
+<div id="bonus" class="page">
+<section>
+<h2 class="section-title">Bonus <span>karta</span></h2>
+
+<div class="bonus-page-wrap">
+
+<div class="bonus-main-card">
+<h2>Sbírej body, pij zdarma</h2>
+<p>
+Bonus karta je jednoduchý věrnostní systém pro zákazníky.
+Za každou objednávku zákazník získává body, které může později vyměnit za bubble tea zdarma.
+</p>
+
+<p>
+Tento systém pomáhá podniku získat stálé zákazníky, motivuje k opakovanému nákupu
+a dělá z webu víc než jen obyčejnou prezentaci.
+</p>
+
+<div class="buttons">
+<button class="btn btn-main" onclick="showPage('menu')">Sbírat body objednávkou</button>
+</div>
+</div>
+
+<div class="points-box">
+<h3>Přepočet bodů</h3>
+
+<div class="points-row">
+<span>1 Kč nákupu</span>
+<span>1 bod</span>
+</div>
+
+<div class="points-row">
+<span>250 bodů</span>
+<span>Milk Tea M</span>
+</div>
+
+<div class="points-row">
+<span>400 bodů</span>
+<span>Milk Tea L</span>
+</div>
+
+<div class="points-row">
+<span>600 bodů</span>
+<span>2 nápoje</span>
+</div>
+
+<div class="points-form">
+<input type="number" id="pointsInput" placeholder="Zadej počet bodů">
+<button class="whatsapp-btn" onclick="calculatePoints()">Spočítat odměnu</button>
+</div>
+
+<div class="calc-result" id="pointsResult">
+Zadej body a zjisti odměnu.
+</div>
+</div>
+
+</div>
+</section>
+</div>
+
 <div id="about" class="page">
 <section>
 <h2 class="section-title">O <span>nás</span></h2>
@@ -727,7 +940,7 @@ Spojuje výrazné chutě, barevný street styl a rychlou online objednávku.
 <li>Fresh nápoje každý den</li>
 <li>Bubble tea, fruit tea, matcha, coffee a special drinky</li>
 <li>Takeaway a online objednávky</li>
-<li>Vhodné pro party, narozeniny i firemní akce</li>
+<li>Bonus karta pro stálé zákazníky</li>
 <li>Moderní styl pro sociální sítě</li>
 </ul>
 </div>
@@ -750,8 +963,8 @@ pro kavárnu, bubble tea obchod, bistro, sushi, street food nebo takeaway provoz
 
 <p>
 Cílem je ukázat, že web nemusí být jen vizitka. Může rovnou pomáhat prodávat:
-zákazník si vybere produkt, nastaví velikost, cukr, led, topping, přidá vše do košíku
-a odešle objednávku přes WhatsApp.
+zákazník si vybere produkt, nastaví velikost, cukr, led, topping, přidá vše do košíku,
+získá bonusové body a odešle objednávku přes WhatsApp.
 </p>
 
 <div class="demo-grid">
@@ -771,8 +984,8 @@ a odešle objednávku přes WhatsApp.
 </div>
 
 <div class="demo-card">
-<h3>✅ Objednávka</h3>
-<p>Košík, kontaktní údaje a automaticky připravená zpráva pro WhatsApp.</p>
+<h3>✅ Bonus systém</h3>
+<p>Zákazník sbírá body a může je vyměnit za nápoje zdarma.</p>
 </div>
 </div>
 </div>
@@ -783,7 +996,7 @@ a odešle objednávku přes WhatsApp.
 <h3>Styl quán / provozovny</h3>
 <p>
 Design je postavený jako moderní street brand: výrazné nadpisy, zelená identita,
-jemné béžové pozadí, energické detaily a prvky vhodné pro mladé zákazníky.
+béžové pozadí ve stylu hazelnut, energické detaily a prvky vhodné pro mladé zákazníky.
 Takový styl dobře funguje pro podniky, které chtějí působit svěže, moderně
 a být dobře zapamatovatelné.
 </p>
@@ -795,7 +1008,7 @@ a být dobře zapamatovatelné.
 Bubble tea je oblíbený nápoj mezi mladými zákazníky díky možnosti personalizace.
 Každý si může vybrat chuť, množství cukru, led, velikost a topping.
 Proto se tento typ webu hodí pro online objednávky, takeaway, rozvoz,
-party sety i sezónní nabídky.
+party sety, sezónní nabídky i věrnostní bonus program.
 </p>
 </div>
 
@@ -812,7 +1025,7 @@ party sety i sezónní nabídky.
 <script>
 const fallbackImg = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
 <svg xmlns='http://www.w3.org/2000/svg' width='900' height='600'>
-<rect width='100%' height='100%' fill='#fbf4e8'/>
+<rect width='100%' height='100%' fill='#CFB095'/>
 <circle cx='180' cy='150' r='110' fill='#2f8f46'/>
 <circle cx='690' cy='180' r='90' fill='#ff4fd8'/>
 <circle cx='480' cy='420' r='120' fill='#00a6d6'/>
@@ -821,110 +1034,27 @@ const fallbackImg = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
 `);
 
 const products = [
-{
-name:"Brown Sugar Milk Tea",
-category:"milk",
-price:89,
-desc:"Mléčný čaj s hnědým cukrem a tapioka perlami.",
-img:"https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Classic Milk Tea",
-category:"milk",
-price:79,
-desc:"Klasický černý čaj s mlékem, jemný a voňavý.",
-img:"https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Taro Milk Tea",
-category:"milk",
-price:95,
-desc:"Sladká taro chuť, krémová textura a tapioka.",
-img:"https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Matcha Latte Bubble",
-category:"matcha",
-price:95,
-desc:"Japonská matcha, mléko a jemná pěna.",
-img:"https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Strawberry Matcha",
-category:"matcha",
-price:109,
-desc:"Matcha s jahodovým pyré a mlékem.",
-img:"https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Mango Fruit Tea",
-category:"fruit",
-price:85,
-desc:"Ovocný čaj s mangem a svěží chutí.",
-img:"https://images.unsplash.com/photo-1565152768079-28a4f6b47870?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Passion Fruit Tea",
-category:"fruit",
-price:89,
-desc:"Maracuja, zelený čaj a osvěžující kyselost.",
-img:"https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Lychee Rose Tea",
-category:"fruit",
-price:92,
-desc:"Liči, růže a lehký čaj s elegantní vůní.",
-img:"https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Vietnamese Coffee",
-category:"coffee",
-price:79,
-desc:"Silná vietnamská káva s kondenzovaným mlékem.",
-img:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Brown Sugar Coffee Latte",
-category:"coffee",
-price:99,
-desc:"Káva, mléko, hnědý cukr a street vibe.",
-img:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Blue Lemon Soda",
-category:"special",
-price:75,
-desc:"Modrá limonáda, citron, bublinky a výrazný vzhled.",
-img:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Oreo Cream Milk",
-category:"special",
-price:105,
-desc:"Mléčný drink s Oreo a krémovou chutí.",
-img:"https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Street Special Mix",
-category:"special",
-price:109,
-desc:"Barevný signature drink pro sociální sítě.",
-img:"https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=80"
-}
+{name:"Brown Sugar Milk Tea",category:"milk",price:89,desc:"Mléčný čaj s hnědým cukrem a tapioka perlami.",img:"https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=700&q=80"},
+{name:"Classic Milk Tea",category:"milk",price:79,desc:"Klasický černý čaj s mlékem, jemný a voňavý.",img:"https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=80"},
+{name:"Taro Milk Tea",category:"milk",price:95,desc:"Sladká taro chuť, krémová textura a tapioka.",img:"https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80"},
+{name:"Matcha Latte Bubble",category:"matcha",price:95,desc:"Japonská matcha, mléko a jemná pěna.",img:"https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=700&q=80"},
+{name:"Strawberry Matcha",category:"matcha",price:109,desc:"Matcha s jahodovým pyré a mlékem.",img:"https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=700&q=80"},
+{name:"Mango Fruit Tea",category:"fruit",price:85,desc:"Ovocný čaj s mangem a svěží chutí.",img:"https://images.unsplash.com/photo-1565152768079-28a4f6b47870?auto=format&fit=crop&w=700&q=80"},
+{name:"Passion Fruit Tea",category:"fruit",price:89,desc:"Maracuja, zelený čaj a osvěžující kyselost.",img:"https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=700&q=80"},
+{name:"Lychee Rose Tea",category:"fruit",price:92,desc:"Liči, růže a lehký čaj s elegantní vůní.",img:"https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=700&q=80"},
+{name:"Vietnamese Coffee",category:"coffee",price:79,desc:"Silná vietnamská káva s kondenzovaným mlékem.",img:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"},
+{name:"Brown Sugar Coffee Latte",category:"coffee",price:99,desc:"Káva, mléko, hnědý cukr a street vibe.",img:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"},
+{name:"Blue Lemon Soda",category:"special",price:75,desc:"Modrá limonáda, citron, bublinky a výrazný vzhled.",img:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=700&q=80"},
+{name:"Oreo Cream Milk",category:"special",price:105,desc:"Mléčný drink s Oreo a krémovou chutí.",img:"https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=700&q=80"},
+{name:"Street Special Mix",category:"special",price:109,desc:"Barevný signature drink pro sociální sítě.",img:"https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=80"}
 ];
 
 let cart = [];
 
 function toggleDark(){
 document.body.classList.toggle("dark");
-
 const btn = document.querySelector(".nav-actions button");
-if(document.body.classList.contains("dark")){
-btn.textContent = "Light";
-}else{
-btn.textContent = "Dark";
-}
+btn.textContent = document.body.classList.contains("dark") ? "Light" : "Dark";
 }
 
 function showPage(pageId){
@@ -1065,6 +1195,26 @@ cart.splice(index,1);
 updateCart();
 }
 
+function calculatePoints(){
+const points = Number(document.getElementById("pointsInput").value);
+const result = document.getElementById("pointsResult");
+
+if(!points || points <= 0){
+result.textContent = "Zadej platný počet bodů.";
+return;
+}
+
+if(points >= 600){
+result.textContent = "Máš odměnu: 2 nápoje zdarma.";
+}else if(points >= 400){
+result.textContent = "Máš odměnu: Velký bubble tea zdarma.";
+}else if(points >= 250){
+result.textContent = "Máš odměnu: Malý bubble tea zdarma.";
+}else{
+result.textContent = "Ještě potřebuješ " + (250 - points) + " bodů na první nápoj zdarma.";
+}
+}
+
 function sendWhatsApp(){
 if(cart.length===0){
 alert("Košík je prázdný.");
@@ -1091,7 +1241,8 @@ message += `Topping: ${item.topping}%0A`;
 message += `Cena: ${item.price} Kč%0A%0A`;
 });
 
-message += `Celkem: ${total} Kč%0A%0A`;
+message += `Celkem: ${total} Kč%0A`;
+message += `Bonus body: ${total} bodů%0A%0A`;
 message += `Jméno: ${name}%0A`;
 message += `Telefon: ${customerPhone}%0A`;
 message += `Adresa: ${address}%0A`;
