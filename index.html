@@ -8,54 +8,61 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--green:#2f8f46;
+--green2:#1f6f35;
+--beige:#f4ead7;
+--black:#111;
+--pink:#ff4fd8;
+--blue:#00a6d6;
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:#f4ead7;color:#111;overflow-x:hidden}
-body.dark{background:#0d0d0d;color:white}
+body{font-family:'Poppins',sans-serif;background:var(--beige);color:var(--black);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
+button{font-family:'Poppins',sans-serif;cursor:pointer}
 
 header{
-position:fixed;top:0;width:100%;z-index:999;
-background:rgba(244,234,215,.92);
+position:fixed;top:0;left:0;width:100%;z-index:999;
+background:rgba(244,234,215,.95);
 backdrop-filter:blur(14px);
-border-bottom:2px solid #111;
+border-bottom:2px solid var(--black);
 }
-body.dark header{background:rgba(13,13,13,.92);border-bottom:2px solid #7fff00}
 
 .navbar{
-max-width:1200px;margin:auto;padding:14px 20px;
-display:flex;justify-content:space-between;align-items:center;gap:12px;
+max-width:1200px;margin:auto;
+display:flex;justify-content:space-between;align-items:center;
+padding:14px 20px;gap:15px;
 }
 
 .logo{
-font-family:'Anton';font-size:30px;color:#7fff00;
-text-shadow:2px 2px 0 #111;
+font-family:'Anton';font-size:30px;
+color:var(--green);
+text-shadow:2px 2px 0 var(--black);
 }
 
-.nav-links{display:flex;gap:20px;font-weight:800;font-size:14px;text-transform:uppercase}
-.nav-actions{display:flex;gap:10px;align-items:center}
+.nav-links{display:flex;gap:18px;font-weight:900;text-transform:uppercase;font-size:14px}
+.nav-links a:hover{color:var(--green)}
 
-.btn-small{
-border:2px solid #111;background:#7fff00;color:#111;
-padding:9px 14px;border-radius:25px;font-weight:900;
-cursor:pointer;box-shadow:3px 3px 0 #111;
+.nav-btn{
+background:var(--green);color:white;
+border:2px solid var(--black);
+padding:10px 16px;border-radius:30px;
+font-weight:900;box-shadow:4px 4px 0 var(--black);
 }
 
-/* HERO */
+.page{display:none;padding-top:86px}
+.page.active{display:block}
+
 .hero{
-min-height:100vh;padding:125px 20px 70px;
+min-height:calc(100vh - 86px);
 display:flex;align-items:center;
+padding:60px 20px;
 background:
-radial-gradient(circle at 15% 25%, #7fff00 0 10%, transparent 11%),
-radial-gradient(circle at 85% 30%, #ff4fd8 0 8%, transparent 9%),
-radial-gradient(circle at 60% 85%, #00c2ff 0 9%, transparent 10%),
-#f4ead7;
-}
-body.dark .hero{
-background:
-radial-gradient(circle at 15% 25%, #7fff00 0 10%, transparent 11%),
-radial-gradient(circle at 85% 30%, #ff4fd8 0 8%, transparent 9%),
-#0d0d0d;
+radial-gradient(circle at 15% 25%,rgba(47,143,70,.28) 0 10%,transparent 11%),
+radial-gradient(circle at 85% 30%,rgba(255,79,216,.22) 0 8%,transparent 9%),
+radial-gradient(circle at 60% 85%,rgba(0,166,214,.22) 0 9%,transparent 10%),
+var(--beige);
 }
 
 .hero-wrap{
@@ -65,43 +72,52 @@ gap:45px;align-items:center;
 }
 
 .tag{
-display:inline-block;background:#111;color:#7fff00;
+display:inline-block;background:var(--black);color:white;
 padding:9px 18px;border-radius:30px;font-weight:900;
 margin-bottom:20px;transform:rotate(-2deg);
 }
-body.dark .tag{background:white;color:#111}
 
 .hero h1{
 font-family:'Anton';
-font-size:clamp(54px,9vw,120px);
+font-size:clamp(52px,9vw,118px);
 line-height:.9;text-transform:uppercase;
 }
-.hero h1 span{color:#7fff00;text-shadow:5px 5px 0 #111}
-body.dark .hero h1 span{text-shadow:4px 4px 0 #ff4fd8}
+
+.hero h1 span{
+color:var(--green);
+text-shadow:4px 4px 0 var(--black);
+}
 
 .hero p{
 max-width:560px;font-size:18px;
-margin:24px 0;line-height:1.7;font-weight:500;
+line-height:1.7;margin:24px 0;
+font-weight:500;
 }
 
-.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}
 
 .btn{
+display:inline-block;
 padding:14px 24px;border-radius:35px;
-border:2px solid #111;font-weight:900;display:inline-block;
+border:2px solid var(--black);
+font-weight:900;
 }
-.btn-main{background:#7fff00;color:#111;box-shadow:5px 5px 0 #111}
-.btn-second{background:white;color:#111}
 
-/* SLIDER */
+.btn-main{
+background:var(--green);color:white;
+box-shadow:5px 5px 0 var(--black);
+}
+
+.btn-light{background:white;color:var(--black)}
+
 .hero-img{
-height:500px;border:3px solid #111;border-radius:35px;
-overflow:hidden;box-shadow:12px 12px 0 #111;
-position:relative;background:#7fff00;
+height:500px;border:3px solid var(--black);
+border-radius:35px;overflow:hidden;
+box-shadow:12px 12px 0 var(--black);
+position:relative;background:var(--green);
 }
-body.dark .hero-img{border-color:#7fff00;box-shadow:12px 12px 0 #7fff00}
 
-.slider{height:100%;display:flex;animation:slide 12s infinite}
+.slider{height:100%;display:flex;animation:slide 14s infinite}
 .slider img{width:100%;height:100%;object-fit:cover;flex-shrink:0}
 
 @keyframes slide{
@@ -112,49 +128,56 @@ body.dark .hero-img{border-color:#7fff00;box-shadow:12px 12px 0 #7fff00}
 }
 
 .sticker{
-position:absolute;left:20px;bottom:20px;
-background:#ff4fd8;color:white;
-padding:12px 20px;border:2px solid #111;
-border-radius:30px;font-weight:900;
-transform:rotate(-5deg);
+position:absolute;bottom:20px;left:20px;
+background:var(--pink);color:white;
+padding:12px 20px;border-radius:30px;
+border:2px solid var(--black);
+font-weight:900;transform:rotate(-5deg);
 }
 
-/* COMMON */
-section{padding:90px 20px}
+section{padding:80px 20px}
+
 .section-title{
 text-align:center;font-family:'Anton';
 font-size:clamp(42px,6vw,76px);
-margin-bottom:45px;text-transform:uppercase;
+text-transform:uppercase;margin-bottom:45px;
 }
-.section-title span{color:#7fff00;text-shadow:3px 3px 0 #111}
 
-/* FEATURES */
-.features{background:#111;color:white}
+.section-title span{
+color:var(--green);
+text-shadow:3px 3px 0 var(--black);
+}
+
+.features{background:var(--black);color:white}
+
 .feature-grid{
 max-width:1100px;margin:auto;
-display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
-}
-.feature{
-background:#f4ead7;color:#111;
-border:3px solid white;border-radius:25px;
-padding:25px;box-shadow:6px 6px 0 #7fff00;
+display:grid;grid-template-columns:repeat(4,1fr);
+gap:20px;
 }
 
-/* MENU */
-.menu{background:#f4ead7}
-body.dark .menu{background:#0d0d0d}
+.feature{
+background:var(--beige);color:var(--black);
+border:3px solid white;border-radius:25px;
+padding:25px;box-shadow:6px 6px 0 var(--green);
+}
 
 .filters{
-display:flex;justify-content:center;flex-wrap:wrap;
-gap:12px;margin-bottom:35px;
+display:flex;justify-content:center;
+flex-wrap:wrap;gap:12px;margin-bottom:35px;
 }
 
 .filter-btn{
-padding:10px 18px;border:2px solid #111;
-border-radius:30px;background:white;color:#111;
-font-weight:900;cursor:pointer;
+padding:10px 18px;border-radius:30px;
+border:2px solid var(--black);
+background:white;color:var(--black);
+font-weight:900;
 }
-.filter-btn.active{background:#7fff00;box-shadow:3px 3px 0 #111}
+
+.filter-btn.active{
+background:var(--green);color:white;
+box-shadow:3px 3px 0 var(--black);
+}
 
 .menu-grid{
 max-width:1200px;margin:auto;
@@ -163,106 +186,141 @@ gap:26px;
 }
 
 .card{
-background:#111;color:white;
-border:3px solid #111;border-radius:28px;
-overflow:hidden;box-shadow:8px 8px 0 #7fff00;
+background:var(--black);color:white;
+border:3px solid var(--black);
+border-radius:28px;overflow:hidden;
+box-shadow:8px 8px 0 var(--green);
 }
-.card img{width:100%;height:220px;object-fit:cover}
+
+.card img{
+width:100%;height:220px;object-fit:cover;
+background:linear-gradient(135deg,var(--green),var(--beige));
+}
+
 .card-content{padding:22px}
 .card h3{font-size:23px;margin-bottom:8px}
 .card p{font-size:14px;color:#ddd}
 
 .price{
 display:inline-block;margin:14px 0;
-background:#7fff00;color:#111;
+background:var(--green);color:white;
 padding:8px 14px;border-radius:20px;
 font-weight:900;
 }
 
 .options{display:grid;gap:9px;margin:13px 0}
+
 .options select{
-width:100%;padding:10px;border-radius:12px;
-border:2px solid #111;font-weight:700;
+width:100%;padding:10px;
+border-radius:12px;border:2px solid var(--black);
+font-weight:700;
 }
 
 .add-btn{
-width:100%;margin-top:10px;padding:12px;
+width:100%;padding:12px;
 border-radius:25px;border:2px solid white;
-background:#ff4fd8;color:white;
-font-weight:900;cursor:pointer;
+background:var(--pink);color:white;
+font-weight:900;
 }
 
-/* CART */
-.cart{background:#111;color:white}
-.cart-box{
-max-width:850px;margin:auto;
-background:#f4ead7;color:#111;
-border:3px solid white;border-radius:30px;
-padding:30px;box-shadow:10px 10px 0 #7fff00;
+.order-layout{
+max-width:1100px;margin:auto;
+display:grid;grid-template-columns:1fr .9fr;
+gap:30px;
+}
+
+.order-box,.info-box{
+background:var(--black);color:white;
+padding:35px;border-radius:30px;
+border:3px solid white;
+box-shadow:10px 10px 0 var(--green);
 }
 
 .cart-item{
 display:flex;justify-content:space-between;
-gap:12px;padding:12px 0;
-border-bottom:1px solid #aaa;
-}
-.cart-total{
-font-size:24px;font-weight:900;
-text-align:right;margin-top:20px;
-}
-.remove-btn{
-background:#111;color:white;border:none;
-border-radius:20px;padding:6px 10px;cursor:pointer;
-}
-.whatsapp-btn{
-display:block;margin-top:22px;
-background:#7fff00;color:#111;
-padding:15px;text-align:center;
-border-radius:30px;border:2px solid #111;
-font-weight:900;
+gap:14px;padding:14px 0;
+border-bottom:1px solid #444;
 }
 
-/* DEMO */
-.demo{
-background:linear-gradient(135deg,#7fff00 0%,#7fff00 45%,#f4ead7 45%);
+.cart-total{
+text-align:right;font-size:24px;
+font-weight:900;margin-top:20px;
+color:var(--green);
 }
-.demo-box{
-max-width:1000px;margin:auto;
-background:#111;color:white;
-border-radius:35px;padding:45px;
-border:3px solid white;box-shadow:12px 12px 0 #fff;
+
+.remove-btn{
+background:white;color:var(--black);
+border:none;border-radius:20px;
+padding:6px 10px;font-weight:900;
 }
-.demo-box h2{
+
+.form{display:grid;gap:14px;margin-top:18px}
+
+.form input,.form textarea{
+width:100%;padding:13px;
+border-radius:14px;border:2px solid var(--black);
+}
+
+.form textarea{min-height:90px}
+
+.whatsapp-btn{
+width:100%;display:block;margin-top:18px;
+background:var(--green);color:white;
+padding:15px;border-radius:30px;
+border:2px solid white;
+font-weight:900;text-align:center;
+}
+
+.about-wrap{
+max-width:1100px;margin:auto;
+display:grid;grid-template-columns:1fr 1fr;
+gap:30px;align-items:center;
+}
+
+.about-img{
+height:430px;border-radius:35px;
+overflow:hidden;border:3px solid var(--black);
+box-shadow:10px 10px 0 var(--green);
+}
+
+.about-img img{width:100%;height:100%;object-fit:cover}
+
+.about-text{
+background:white;padding:35px;
+border-radius:30px;border:3px solid var(--black);
+box-shadow:10px 10px 0 var(--black);
+}
+
+.about-text h2{
 font-family:'Anton';font-size:55px;margin-bottom:15px;
 }
-.demo-list{
-display:grid;grid-template-columns:repeat(2,1fr);
-gap:12px;margin-top:25px;
-}
-.demo-list div{
-background:#222;border:1px solid #444;
-border-radius:18px;padding:15px;
+
+.about-text p{line-height:1.7}
+
+.about-text ul{
+margin-top:20px;padding-left:20px;
+line-height:2;font-weight:700;
 }
 
-/* FOOTER */
 footer{
-background:#111;color:white;
+background:var(--black);color:white;
 text-align:center;padding:30px;
 }
-footer span{color:#7fff00;font-weight:900}
 
-/* MOBILE */
+footer span{color:var(--green);font-weight:900}
+
 @media(max-width:900px){
 .nav-links{display:none}
-.hero-wrap{grid-template-columns:1fr}
-.hero-img{height:380px}
-.menu-grid,.feature-grid,.demo-list{grid-template-columns:1fr}
+.hero-wrap,.order-layout,.about-wrap{grid-template-columns:1fr}
+.feature-grid,.menu-grid{grid-template-columns:1fr}
+.hero-img{height:360px}
 }
+
 @media(max-width:480px){
 .logo{font-size:23px}
-.btn-small{padding:8px 10px;font-size:12px}
-.hero{padding-top:105px}
-.hero-img{height:310px;box-shadow:7px 7px 0 #111}
+.nav-btn{font-size:12px;padding:8px 11px}
+.hero{padding-top:35px}
+.hero-img{height:300px;box-shadow:7px 7px 0 var(--black)}
 .cart-item{flex-direction:column}
 }
 </style>
@@ -275,20 +333,21 @@ footer span{color:#7fff00;font-weight:900}
 <div class="logo">BUBBLE STREET</div>
 
 <nav class="nav-links">
-<a href="#home">Domů</a>
-<a href="#menu">Menu</a>
-<a href="#cart">Košík</a>
-<a href="#demo">Demo web</a>
+<a onclick="showPage('home')">Domů</a>
+<a onclick="showPage('menu')">Menu</a>
+<a onclick="showPage('order')">Objednávka</a>
+<a onclick="showPage('about')">O nás</a>
 </nav>
 
-<div class="nav-actions">
-<button class="btn-small" onclick="toggleDark()">Dark</button>
-<a href="#cart" class="btn-small">Košík 🛒</a>
-</div>
+<button class="nav-btn" onclick="showPage('order')">Košík 🛒</button>
 </div>
 </header>
 
-<section class="hero" id="home">
+<main>
+
+<div id="home" class="page active">
+
+<section class="hero">
 <div class="hero-wrap">
 
 <div>
@@ -301,21 +360,21 @@ Street Style
 </h1>
 
 <p>
-Moderní demo web pro bubble tea, kavárnu nebo street food.
+Moderní demo web pro bubble tea obchod v České republice.
 Zákazník si vybere nápoj, velikost, cukr, led, topping a odešle objednávku přes WhatsApp.
 </p>
 
-<div class="hero-buttons">
-<a href="#menu" class="btn btn-main">Vybrat nápoj</a>
-<a href="#demo" class="btn btn-second">Ukázka pro klienta</a>
+<div class="buttons">
+<button class="btn btn-main" onclick="showPage('menu')">Vybrat nápoj</button>
+<button class="btn btn-light" onclick="showPage('about')">O nás</button>
 </div>
 </div>
 
 <div class="hero-img">
 <div class="slider">
-<img src="https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1565152768079-28a4f6b47870?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=900&q=80" onerror="this.src=fallbackImg">
+<img src="https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=900&q=80" onerror="this.src=fallbackImg">
+<img src="https://images.unsplash.com/photo-1565152768079-28a4f6b47870?auto=format&fit=crop&w=900&q=80" onerror="this.src=fallbackImg">
 </div>
 <div class="sticker">NEW DRINK 🔥</div>
 </div>
@@ -327,296 +386,275 @@ Zákazník si vybere nápoj, velikost, cukr, led, topping a odešle objednávku 
 <h2 class="section-title">Co web <span>umí</span></h2>
 
 <div class="feature-grid">
-<div class="feature"><h3>Online menu</h3><p>Přehledné produkty, ceny a popisy.</p></div>
-<div class="feature"><h3>Filtr kategorií</h3><p>Mléčný čaj, ovocný čaj, matcha, coffee a speciály.</p></div>
-<div class="feature"><h3>Košík</h3><p>Zákazník přidá více položek do objednávky.</p></div>
-<div class="feature"><h3>WhatsApp objednávka</h3><p>Objednávka se automaticky připraví do zprávy.</p></div>
+<div class="feature"><h3>Online menu</h3><p>Produkty, ceny, fotky a popisy.</p></div>
+<div class="feature"><h3>Filtr kategorií</h3><p>Milk tea, fruit tea, matcha, coffee a special.</p></div>
+<div class="feature"><h3>Košík</h3><p>Zákazník může objednat více položek najednou.</p></div>
+<div class="feature"><h3>WhatsApp</h3><p>Objednávka se připraví přímo do zprávy.</p></div>
 </div>
 </section>
 
-<section class="menu" id="menu">
+</div>
+
+<div id="menu" class="page">
+
+<section>
 <h2 class="section-title">Naše <span>Menu</span></h2>
 
 <div class="filters">
-<button class="filter-btn active" onclick="filterMenu('all', this)">Vše</button>
-<button class="filter-btn" onclick="filterMenu('milk', this)">Milk Tea</button>
-<button class="filter-btn" onclick="filterMenu('fruit', this)">Fruit Tea</button>
-<button class="filter-btn" onclick="filterMenu('matcha', this)">Matcha</button>
-<button class="filter-btn" onclick="filterMenu('coffee', this)">Coffee</button>
-<button class="filter-btn" onclick="filterMenu('special', this)">Special</button>
+<button class="filter-btn active" onclick="filterMenu('all',this)">Vše</button>
+<button class="filter-btn" onclick="filterMenu('milk',this)">Milk Tea</button>
+<button class="filter-btn" onclick="filterMenu('fruit',this)">Fruit Tea</button>
+<button class="filter-btn" onclick="filterMenu('matcha',this)">Matcha</button>
+<button class="filter-btn" onclick="filterMenu('coffee',this)">Coffee</button>
+<button class="filter-btn" onclick="filterMenu('special',this)">Special</button>
 </div>
 
-<div class="menu-grid">
-
-<div class="card product" data-category="milk">
-<img src="https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Brown Sugar Milk Tea</h3>
-<p>Mléčný čaj s hnědým cukrem a tapioka perlami.</p>
-<div class="price">89 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-<select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-<select class="topping"><option>Tapioka perly</option><option>Jelly +10 Kč</option><option>Popping boba +15 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Brown Sugar Milk Tea',89)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="milk">
-<img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Classic Milk Tea</h3>
-<p>Klasický černý čaj s mlékem, jemný a voňavý.</p>
-<div class="price">79 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-<select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-<select class="topping"><option>Tapioka perly</option><option>Jelly +10 Kč</option><option>Extra tapioka +15 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Classic Milk Tea',79)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="milk">
-<img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Taro Milk Tea</h3>
-<p>Sladká taro chuť, krémová textura a tapioka.</p>
-<div class="price">95 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-<select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-<select class="topping"><option>Tapioka perly</option><option>Pudding +15 Kč</option><option>Jelly +10 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Taro Milk Tea',95)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="matcha">
-<img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Matcha Latte Bubble</h3>
-<p>Japonská matcha, mléko a jemná pěna.</p>
-<div class="price">95 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-<select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-<select class="topping"><option>Tapioka perly</option><option>Jelly +10 Kč</option><option>Popping boba +15 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Matcha Latte Bubble',95)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="matcha">
-<img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Strawberry Matcha</h3>
-<p>Matcha, jahodové pyré a mléko v krásných vrstvách.</p>
-<div class="price">109 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-<select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-<select class="topping"><option>Jahodové boba</option><option>Tapioka +10 Kč</option><option>Extra strawberry +20 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Strawberry Matcha',109)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="fruit">
-<img src="https://images.unsplash.com/photo-1565152768079-28a4f6b47870?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Mango Fruit Tea</h3>
-<p>Ovocný čaj s mangem a svěží chutí.</p>
-<div class="price">85 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-<select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-<select class="topping"><option>Popping boba</option><option>Jelly +10 Kč</option><option>Tapioka +10 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Mango Fruit Tea',85)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="fruit">
-<img src="https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Passion Fruit Tea</h3>
-<p>Maracuja, zelený čaj a osvěžující kyselost.</p>
-<div class="price">89 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-<select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-<select class="topping"><option>Mango boba</option><option>Jelly +10 Kč</option><option>Extra fruit +20 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Passion Fruit Tea',89)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="fruit">
-<img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Lychee Rose Tea</h3>
-<p>Liči, růže a lehký čaj s elegantní vůní.</p>
-<div class="price">92 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option><option>0% cukr</option></select>
-<select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-<select class="topping"><option>Lychee boba</option><option>Jelly +10 Kč</option><option>Aloe vera +15 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Lychee Rose Tea',92)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="coffee">
-<img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Vietnamese Coffee</h3>
-<p>Silná vietnamská káva se sladkým kondenzovaným mlékem.</p>
-<div class="price">79 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>Sladké</option><option>Méně sladké</option><option>Bez cukru</option></select>
-<select class="ice"><option>Ledová</option><option>Teplá</option><option>Méně ledu</option></select>
-<select class="topping"><option>Bez toppingu</option><option>Tapioka +10 Kč</option><option>Coffee jelly +15 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Vietnamese Coffee',79)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="coffee">
-<img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Brown Sugar Coffee Latte</h3>
-<p>Káva, mléko, hnědý cukr a street vibe.</p>
-<div class="price">99 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option></select>
-<select class="ice"><option>Ledová</option><option>Teplá</option><option>Méně ledu</option></select>
-<select class="topping"><option>Coffee jelly</option><option>Tapioka +10 Kč</option><option>Extra caramel +15 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Brown Sugar Coffee Latte',99)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="special">
-<img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Blue Lemon Soda</h3>
-<p>Modrá limonáda, citron, bublinky a výrazný vzhled.</p>
-<div class="price">75 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option></select>
-<select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-<select class="topping"><option>Bez toppingu</option><option>Popping boba +15 Kč</option><option>Jelly +10 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Blue Lemon Soda',75)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="special">
-<img src="https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Oreo Cream Milk</h3>
-<p>Mléčný drink s Oreo, šlehačkou a sladkou krémovou chutí.</p>
-<div class="price">105 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option></select>
-<select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-<select class="topping"><option>Oreo crumb</option><option>Extra cream +15 Kč</option><option>Tapioka +10 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Oreo Cream Milk',105)">Přidat do košíku</button>
-</div>
-</div>
-
-<div class="card product" data-category="special">
-<img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=80">
-<div class="card-content">
-<h3>Street Special Mix</h3>
-<p>Barevný signature drink pro sociální sítě.</p>
-<div class="price">109 Kč</div>
-<div class="options">
-<select class="size"><option value="M">Size M</option><option value="L +15 Kč">Size L +15 Kč</option></select>
-<select class="sugar"><option>100% cukr</option><option>70% cukr</option><option>50% cukr</option><option>30% cukr</option></select>
-<select class="ice"><option>Normální led</option><option>Méně ledu</option><option>Bez ledu</option></select>
-<select class="topping"><option>Mix topping</option><option>Popping boba +15 Kč</option><option>Extra topping +20 Kč</option></select>
-</div>
-<button class="add-btn" onclick="addToCart(this,'Street Special Mix',109)">Přidat do košíku</button>
-</div>
-</div>
-
-</div>
+<div class="menu-grid" id="menuGrid"></div>
 </section>
 
-<section class="cart" id="cart">
-<h2 class="section-title">Tvůj <span>Košík</span></h2>
-
-<div class="cart-box">
-<div id="cartItems">
-<p>Košík je zatím prázdný.</p>
 </div>
 
+<div id="order" class="page">
+
+<section>
+<h2 class="section-title">Online <span>Objednávka</span></h2>
+
+<div class="order-layout">
+
+<div class="order-box">
+<h2>Tvůj košík</h2>
+<div id="cartItems"><p>Košík je zatím prázdný.</p></div>
 <div class="cart-total" id="cartTotal">Celkem: 0 Kč</div>
+</div>
 
-<a href="#" class="whatsapp-btn" onclick="sendWhatsApp()">Odeslat objednávku přes WhatsApp</a>
+<div class="info-box">
+<h2>Kontaktní údaje</h2>
+<p>Vyplň údaje a odešli objednávku přes WhatsApp.</p>
+
+<div class="form">
+<input id="customerName" placeholder="Jméno">
+<input id="customerPhone" placeholder="Telefon">
+<input id="customerAddress" placeholder="Adresa">
+<textarea id="customerNote" placeholder="Poznámka k objednávce"></textarea>
+</div>
+
+<button class="whatsapp-btn" onclick="sendWhatsApp()">Odeslat přes WhatsApp</button>
+</div>
+
 </div>
 </section>
 
-<section class="demo" id="demo">
-<div class="demo-box">
-<h2>Demo web pro klienta</h2>
+</div>
+
+<div id="about" class="page">
+
+<section>
+<h2 class="section-title">O <span>nás</span></h2>
+
+<div class="about-wrap">
+
+<div class="about-img">
+<img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=900&q=80" onerror="this.src=fallbackImg">
+</div>
+
+<div class="about-text">
+<h2>Bubble Street</h2>
 <p>
-Tato stránka je ukázka moderního webu pro podnik, který prodává online.
-Hodí se pro bubble tea, sushi, bistro, kavárnu, street food nebo takeaway.
+Bubble Street je moderní demo web pro podnik v České republice,
+který chce prodávat nápoje online. Hodí se pro bubble tea, kavárnu,
+bistro, sushi nebo takeaway.
 </p>
 
-<div class="demo-list">
-<div>✅ Responzivní design pro mobil</div>
-<div>✅ Moderní street style vzhled</div>
-<div>✅ Online menu s kategoriemi</div>
-<div>✅ Výběr velikosti, cukru, ledu a toppingu</div>
-<div>✅ Košík a souhrn objednávky</div>
-<div>✅ Objednávka přes WhatsApp</div>
-<div>✅ Možnost napojení na Wolt / Bolt / Foodora</div>
-<div>✅ Vhodné jako prezentace pro zákazníka</div>
+<ul>
+<li>Responzivní design pro mobil</li>
+<li>Online menu s kategoriemi</li>
+<li>Košík a výběr toppingů</li>
+<li>Objednávka přes WhatsApp</li>
+<li>Možnost napojení na Wolt / Bolt / Foodora</li>
+</ul>
 </div>
+
 </div>
 </section>
 
+</div>
+
+</main>
+
 <footer>
-<p>© 2026 <span>BUBBLE STREET</span> — Demo web pro online prodej</p>
+<p>© 2026 <span>BUBBLE STREET</span> — Demo web pro online prodej v České republice</p>
 </footer>
 
 <script>
+const fallbackImg = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
+<svg xmlns='http://www.w3.org/2000/svg' width='900' height='600'>
+<rect width='100%' height='100%' fill='#f4ead7'/>
+<circle cx='180' cy='150' r='110' fill='#2f8f46'/>
+<circle cx='690' cy='180' r='90' fill='#ff4fd8'/>
+<circle cx='480' cy='420' r='120' fill='#00a6d6'/>
+<text x='50%' y='52%' text-anchor='middle' font-size='54' font-family='Arial' fill='#111' font-weight='bold'>BUBBLE TEA</text>
+</svg>
+`);
+
+const products = [
+{
+name:"Brown Sugar Milk Tea",
+category:"milk",
+price:89,
+desc:"Mléčný čaj s hnědým cukrem a tapioka perlami.",
+img:"https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Classic Milk Tea",
+category:"milk",
+price:79,
+desc:"Klasický černý čaj s mlékem, jemný a voňavý.",
+img:"https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Taro Milk Tea",
+category:"milk",
+price:95,
+desc:"Sladká taro chuť, krémová textura a tapioka.",
+img:"https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Matcha Latte Bubble",
+category:"matcha",
+price:95,
+desc:"Japonská matcha, mléko a jemná pěna.",
+img:"https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Strawberry Matcha",
+category:"matcha",
+price:109,
+desc:"Matcha s jahodovým pyré a mlékem.",
+img:"https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Mango Fruit Tea",
+category:"fruit",
+price:85,
+desc:"Ovocný čaj s mangem a svěží chutí.",
+img:"https://images.unsplash.com/photo-1565152768079-28a4f6b47870?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Passion Fruit Tea",
+category:"fruit",
+price:89,
+desc:"Maracuja, zelený čaj a osvěžující kyselost.",
+img:"https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Lychee Rose Tea",
+category:"fruit",
+price:92,
+desc:"Liči, růže a lehký čaj s elegantní vůní.",
+img:"https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Vietnamese Coffee",
+category:"coffee",
+price:79,
+desc:"Silná vietnamská káva s kondenzovaným mlékem.",
+img:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Brown Sugar Coffee Latte",
+category:"coffee",
+price:99,
+desc:"Káva, mléko, hnědý cukr a street vibe.",
+img:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Blue Lemon Soda",
+category:"special",
+price:75,
+desc:"Modrá limonáda, citron, bublinky a výrazný vzhled.",
+img:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Oreo Cream Milk",
+category:"special",
+price:105,
+desc:"Mléčný drink s Oreo a krémovou chutí.",
+img:"https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=700&q=80"
+},
+{
+name:"Street Special Mix",
+category:"special",
+price:109,
+desc:"Barevný signature drink pro sociální sítě.",
+img:"https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=80"
+}
+];
+
 let cart = [];
 
-function toggleDark(){
-document.body.classList.toggle("dark");
+function showPage(pageId){
+document.querySelectorAll(".page").forEach(page=>page.classList.remove("active"));
+document.getElementById(pageId).classList.add("active");
+window.scrollTo(0,0);
 }
 
-function filterMenu(category, button){
-let products = document.querySelectorAll(".product");
-let buttons = document.querySelectorAll(".filter-btn");
+function renderMenu(){
+const menuGrid = document.getElementById("menuGrid");
+menuGrid.innerHTML = "";
 
-buttons.forEach(btn => btn.classList.remove("active"));
+products.forEach((p,index)=>{
+menuGrid.innerHTML += `
+<div class="card product" data-category="${p.category}">
+<img src="${p.img}" onerror="this.src=fallbackImg">
+<div class="card-content">
+<h3>${p.name}</h3>
+<p>${p.desc}</p>
+<div class="price">${p.price} Kč</div>
+
+<div class="options">
+<select class="size">
+<option value="M">Size M</option>
+<option value="L +15 Kč">Size L +15 Kč</option>
+</select>
+
+<select class="sugar">
+<option>100% cukr</option>
+<option>70% cukr</option>
+<option>50% cukr</option>
+<option>30% cukr</option>
+<option>0% cukr</option>
+</select>
+
+<select class="ice">
+<option>Normální led</option>
+<option>Méně ledu</option>
+<option>Bez ledu</option>
+</select>
+
+<select class="topping">
+<option>Tapioka perly</option>
+<option>Jelly +10 Kč</option>
+<option>Popping boba +15 Kč</option>
+<option>Extra topping +20 Kč</option>
+</select>
+</div>
+
+<button class="add-btn" onclick="addToCart(this, ${index})">Přidat do košíku</button>
+</div>
+</div>
+`;
+});
+}
+
+function filterMenu(category,button){
+document.querySelectorAll(".filter-btn").forEach(btn=>btn.classList.remove("active"));
 button.classList.add("active");
 
-products.forEach(product => {
-if(category === "all" || product.dataset.category === category){
-product.style.display = "block";
-} else {
-product.style.display = "none";
+document.querySelectorAll(".product").forEach(product=>{
+if(category==="all" || product.dataset.category===category){
+product.style.display="block";
+}else{
+product.style.display="none";
 }
 });
 }
@@ -628,33 +666,43 @@ if(text.includes("+20")) return 20;
 return 0;
 }
 
-function addToCart(button, name, basePrice){
-let card = button.closest(".card");
+function addToCart(button,index){
+const p = products[index];
+const card = button.closest(".card");
 
-let size = card.querySelector(".size").value;
-let sugar = card.querySelector(".sugar").value;
-let ice = card.querySelector(".ice").value;
-let topping = card.querySelector(".topping").value;
+const size = card.querySelector(".size").value;
+const sugar = card.querySelector(".sugar").value;
+const ice = card.querySelector(".ice").value;
+const topping = card.querySelector(".topping").value;
 
-let price = basePrice + getExtraPrice(size) + getExtraPrice(topping);
+const price = p.price + getExtraPrice(size) + getExtraPrice(topping);
 
-cart.push({name,size,sugar,ice,topping,price});
+cart.push({
+name:p.name,
+size:size,
+sugar:sugar,
+ice:ice,
+topping:topping,
+price:price
+});
+
 updateCart();
 alert("Produkt byl přidán do košíku!");
+showPage("order");
 }
 
 function updateCart(){
-let cartItems = document.getElementById("cartItems");
-let cartTotal = document.getElementById("cartTotal");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
 
-if(cart.length === 0){
-cartItems.innerHTML = "<p>Košík je zatím prázdný.</p>";
-cartTotal.innerHTML = "Celkem: 0 Kč";
+if(cart.length===0){
+cartItems.innerHTML="<p>Košík je zatím prázdný.</p>";
+cartTotal.innerHTML="Celkem: 0 Kč";
 return;
 }
 
-let html = "";
-let total = 0;
+let html="";
+let total=0;
 
 cart.forEach((item,index)=>{
 total += item.price;
@@ -669,11 +717,12 @@ Topping: ${item.topping}
 <strong>${item.price} Kč</strong><br>
 <button class="remove-btn" onclick="removeItem(${index})">Smazat</button>
 </div>
-</div>`;
+</div>
+`;
 });
 
-cartItems.innerHTML = html;
-cartTotal.innerHTML = "Celkem: " + total + " Kč";
+cartItems.innerHTML=html;
+cartTotal.innerHTML="Celkem: " + total + " Kč";
 }
 
 function removeItem(index){
@@ -682,18 +731,24 @@ updateCart();
 }
 
 function sendWhatsApp(){
-if(cart.length === 0){
+if(cart.length===0){
 alert("Košík je prázdný.");
 return;
 }
 
 let phone = "420000000000";
+
+let name = document.getElementById("customerName").value;
+let customerPhone = document.getElementById("customerPhone").value;
+let address = document.getElementById("customerAddress").value;
+let note = document.getElementById("customerNote").value;
+
 let message = "Dobrý den, chci objednat:%0A%0A";
 let total = 0;
 
 cart.forEach((item,index)=>{
 total += item.price;
-message += `${index + 1}. ${item.name}%0A`;
+message += `${index+1}. ${item.name}%0A`;
 message += `Size: ${item.size}%0A`;
 message += `Cukr: ${item.sugar}%0A`;
 message += `Led: ${item.ice}%0A`;
@@ -701,11 +756,17 @@ message += `Topping: ${item.topping}%0A`;
 message += `Cena: ${item.price} Kč%0A%0A`;
 });
 
-message += `Celkem: ${total} Kč%0A`;
-message += "Jméno:%0AAdresa:%0ATelefon:";
+message += `Celkem: ${total} Kč%0A%0A`;
+message += `Jméno: ${name}%0A`;
+message += `Telefon: ${customerPhone}%0A`;
+message += `Adresa: ${address}%0A`;
+message += `Poznámka: ${note}`;
 
 window.open(`https://wa.me/${phone}?text=${message}`,"_blank");
 }
+
+renderMenu();
+updateCart();
 </script>
 
 </body>
